@@ -1,0 +1,36 @@
+# Translations template for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-07-21 18:11+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.15.0\n"
+
+#: templates/5-index.html:11
+#, python-format
+msgid "You are logged in as %(username)s."
+msgstr ""
+
+#: templates/5-index.html:13
+msgid "You are not logged in."
+msgstr ""
+
+#: 3-app.py:30 4-app.py:37 5-app.py:58
+msgid "Welcome to Holberton"
+msgstr ""
+
+#: 3-app.py:31 4-app.py:38 5-app.py:59
+msgid "Hello world!"
+msgstr ""
+
