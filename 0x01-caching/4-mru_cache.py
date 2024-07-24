@@ -25,6 +25,8 @@ class LinkedList:
         self.head: Node = None
 
     def addFirst(self, key: Node):
+        """Adds to the front
+        """
         if self.head is not None:
             key.next = self.head
             self.head.prev = key
@@ -32,6 +34,8 @@ class LinkedList:
         self.items += 1
 
     def remove(self, key):
+        """Removes item
+        """
         item = self.getNode(key)
         if self.head != item:
             item.prev.next = item.next
@@ -43,6 +47,8 @@ class LinkedList:
         return item
 
     def getNode(self, key):
+        """Returns node
+        """
         temp = self.head
         while temp is not None:
             if temp.value == key:
@@ -51,6 +57,8 @@ class LinkedList:
         return None
 
     def removeLast(self):
+        """Removes last
+        """
         return self.remove(self.head.value)
 
 
