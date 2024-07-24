@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+"""Basic caching
+"""
+
+
 class BaseCaching():
     """ BaseCaching defines:
     - constants of your caching system
