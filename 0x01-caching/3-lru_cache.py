@@ -2,7 +2,6 @@
 """LRU module.
 """
 
-
 BaseCaching = __import__('base_caching').BaseCaching
 
 
@@ -17,7 +16,7 @@ class Node:
 
 
 class LinkedList:
-    """Linked lsit Data structure
+    """Linked list Data structure
     """
 
     def __init__(self) -> None:
@@ -31,7 +30,7 @@ class LinkedList:
         if self.head is not None:
             self.head.prev = key
             key.next = self.head
-        if self.head is None:
+        else:
             self.tail = key
         self.head = key
         self.items += 1
@@ -40,17 +39,16 @@ class LinkedList:
         """Removes Node from list
         """
         item = self.getNode(key)
+        if item is None:
+            return None
         if item.next is not None:
             item.next.prev = item.prev
-        if self.head != item:
+        if item.prev is not None:
             item.prev.next = item.next
-        if self.tail == item:
-            item.prev.next = None
-            self.tail = item.prev
         if self.head == item:
-            self.head.next = item.next
-        if self.head is None:
-            self.tail = self.head
+            self.head = item.next
+        if self.tail == item:
+            self.tail = item.prev
         self.items -= 1
         return item
 
@@ -71,7 +69,7 @@ class LinkedList:
 
 
 class LRUCache(BaseCaching):
-    """FIFO caching
+    """LRU caching
     """
 
     def __init__(self):
@@ -85,7 +83,7 @@ class LRUCache(BaseCaching):
             return
         if key in self.cache_data:
             self.ll.remove(key)
-        if key not in self.cache_data and self.ll.items == self.MAX_ITEMS:
+        elif self.ll.items == self.MAX_ITEMS:
             item_ = self.ll.removeLast()
             print("DISCARD: {}".format(item_.value))
             del self.cache_data[item_.value]
@@ -96,7 +94,7 @@ class LRUCache(BaseCaching):
         """ Get an item by key
         """
         if key is None or key not in self.cache_data:
-            return
+            return None
         node = self.ll.remove(key)
         self.ll.add(node)
-        return self.cache_data.get(key, None)
+        return self.cache_data.get(key)
